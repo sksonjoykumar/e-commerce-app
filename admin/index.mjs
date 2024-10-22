@@ -47,11 +47,11 @@
 //   console.log(`Server is running on port ${port}`);
 // });
 import express from "express";
+import cors from "cors"; // Import the cors package
 import "dotenv/config";
 import { fileURLToPath } from "url";
 import path from "path";
 import { readdirSync } from "fs";
-import cors from "cors";
 import { config } from "./config.js"; // Import the config
 
 // Initialize __dirname and __filename right after imports
@@ -61,13 +61,13 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 8000;
 
-// Middleware to enable CORS, allowing requests from your frontend project
+// Use CORS middleware and allow requests from the frontend origin
 app.use(
   cors({
-    origin: [config.allowedOrigin], // Allow the correct frontend origin dynamically
-    methods: ["GET", "POST", "PUT", "DELETE"], // Specify the methods allowed
-    allowedHeaders: ["Content-Type", "Authorization"], // Add any custom headers you are using
-    credentials: true, // Include credentials if needed
+    origin: ["https://shopping-nu-drab.vercel.app"], // Add your frontend domain here
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow headers you need
+    credentials: true, // If you're using cookies or sessions
   })
 );
 
