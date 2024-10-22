@@ -46,7 +46,6 @@
 // app.listen(port, () => {
 //   console.log(`Server is running on port ${port}`);
 // });
-
 import express from "express";
 import "dotenv/config";
 import { fileURLToPath } from "url";
@@ -62,10 +61,13 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 8000;
 
-// Middleware to enable CORS, dynamically allowing requests from the appropriate origin
+// Middleware to enable CORS, allowing requests from your frontend project
 app.use(
   cors({
-    origin: config.allowedOrigin, // Use the origin based on the environment
+    origin: [config.allowedOrigin], // Allow the correct frontend origin dynamically
+    methods: ["GET", "POST", "PUT", "DELETE"], // Specify the methods allowed
+    allowedHeaders: ["Content-Type", "Authorization"], // Add any custom headers you are using
+    credentials: true, // Include credentials if needed
   })
 );
 
