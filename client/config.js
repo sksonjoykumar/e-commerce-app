@@ -3,7 +3,7 @@ const checkConfig = (server) => {
   switch (server) {
     case "production":
       config = {
-        baseUrl: "", // Your React app's frontend in production
+        baseUrl: "https://adminshopping.vercel.app/", // Your React app's frontend in production
       };
       break;
     case "local":
