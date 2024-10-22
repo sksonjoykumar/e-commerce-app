@@ -1,4 +1,4 @@
-// // Server create using express js 
+// // Server create using express js
 // import express from "express";
 // import "dotenv/config";
 // import { fileURLToPath } from "url";
@@ -47,14 +47,13 @@
 //   console.log(`Server is running on port ${port}`);
 // });
 
-
-// Server create using express js 
 import express from "express";
 import "dotenv/config";
 import { fileURLToPath } from "url";
 import path from "path";
 import { readdirSync } from "fs";
 import cors from "cors";
+import { config } from "./config.js"; // Import the config
 
 // Initialize __dirname and __filename right after imports
 const __filename = fileURLToPath(import.meta.url);
@@ -63,15 +62,15 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 8000;
 
-// Middleware to enable CORS, allowing requests from your frontend project
+// Middleware to enable CORS, dynamically allowing requests from the appropriate origin
 app.use(
   cors({
-    origin: "https://shopping-nu-drab.vercel.app", // Allow only your frontend origin
+    origin: config.allowedOrigin, // Use the origin based on the environment
   })
 );
 
 // Handle preflight CORS requests (for non-GET methods)
-app.options("*", cors()); 
+app.options("*", cors());
 
 // Middleware for parsing JSON and urlencoded data
 app.use(express.json());
