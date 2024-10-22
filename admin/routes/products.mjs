@@ -7,10 +7,10 @@ router.get("/products", (req, res) => {
   res.send(products);
 });
 
-router.get("/product/:id", (req, res) => {
+router.get("/products/:id", (req, res) => {
   const productId = parseInt(req.params.id);
   const product = products.find((item) => {
-    return item._id === productId;
+   return item._id === productId;
   });
 
   if (!productId) {
