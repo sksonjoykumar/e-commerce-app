@@ -7,12 +7,14 @@ router.get("/products", (req, res) => {
   res.send(products);
 });
 
-router.get("/products/:id", (req, res) => {
+router.get("/product/:id", (req, res) => {
   const productId = parseInt(req.params.id);
-  const product = products.find((item) => item._id === productId);
+  const product = products.find((item) => {
+    return item._id === productId;
+  });
 
-  if (!product) {
-    return res.status(404).json({ message: "Product not found" });
+  if (!productId) {
+    return res.status(404).json({ message: "product not found " });
   }
   res.send(product);
 });
