@@ -17,7 +17,7 @@ const port = process.env.PORT || 8000;
 app.use(
   cors({
     // origin: "http://localhost:5173", // React frontend origin
-    origin: "https://shopping-nu-drab.vercel.app", // Allow all origins
+    origin: "*", // Allow all origins
   })
 );
 
