@@ -4,7 +4,7 @@ const checkConfig = (server) => {
   switch (server) {
     case "production":
       config = {
-        baseUrl: "https://adminshopping.vercel.app/", // Your React app's frontend in production
+        baseUrl: "http://localhost:5173", // Your React app's frontend in production
       };
       break;
     case "local":
@@ -18,5 +18,5 @@ const checkConfig = (server) => {
   return config;
 };
 
-export const selectServer = "production"; // Change to "production" when deploying
+export const selectServer = "local"; // Change to "production" when deploying
 export const config = checkConfig(selectServer);
