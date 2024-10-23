@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import {useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { IoStarOutline } from "react-icons/io5";
 import { IoEyeOutline } from "react-icons/io5";
 import { StoreContext } from "../../global-context/GlobalContext";
