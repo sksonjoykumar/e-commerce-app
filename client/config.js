@@ -27,14 +27,14 @@ const checkConfig = (server) => {
   switch (server) {
     case "production":
       config = {
-        baseUrl: "https://adminshopping.vercel.app", // Your backend production server
+        baseUrl: "https://shopping-wine-nu.vercel.app/", // Your backend production server
         frontendUrl: "https://shopping-nu-drab.vercel.app", // Your frontend production link
       };
       break;
     case "local":
       config = {
-        baseUrl: "http://localhost:8000", // Your local backend server
-        frontendUrl: "http://localhost:5173", // Your local React app
+        baseUrl: "https://shopping-wine-nu.vercel.app/", // Your local backend server
+        frontendUrl: "https://shopping-nu-drab.vercel.app", // Your local React app
       };
       break;
     default:
