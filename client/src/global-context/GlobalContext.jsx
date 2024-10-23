@@ -79,29 +79,49 @@ function GlobalContext({ children }) {
 
   // Single Product
   // Function to fetch product data
-  const fetchProductData = async (id) => {
-    const endPoint = id
-      ? `${config?.baseUrl}/products/${id}`
-      : `${config?.baseUrl}/products`;
+  // const fetchProductData = async (id) => {
+  //   const endPoint = id
+  //     ? `${config?.baseUrl}/products/${id}`
+  //     : `${config?.baseUrl}/products`;
 
+  //   try {
+  //     const data = await getData(endPoint);
+  //     if (id) {
+  //       setSingleProduct(data);
+  //       setAllProductData(null);
+  //       setImages(data?.images[0]);
+  //       setColor(data?.colors[0]);
+  //       setLoading(true);
+  //     } else {
+  //       setAllProductData(data);
+  //       setSingleProduct(null);
+  //     }
+  //   } catch (error) {
+  //     setError(error.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  const fetchProductData = async (id) => {
+    if (!id) {
+      setError("Invalid product ID.");
+      return;
+    }
+
+    const endPoint = `${config?.baseUrl}/products/${id}`;
     try {
       const data = await getData(endPoint);
-      if (id) {
-        setSingleProduct(data);
-        setAllProductData(null);
-        setImages(data?.images[0]);
-        setColor(data?.colors[0]);
-        setLoading(true);
-      } else {
-        setAllProductData(data);
-        setSingleProduct(null);
-      }
+      setSingleProduct(data);
+      setImages(data?.images[0]);
+      setColor(data?.colors[0]);
     } catch (error) {
       setError(error.message);
     } finally {
       setLoading(false);
     }
   };
+
 
   // getTotalCartAmount function
   const getTotalCartAmount = () => {
