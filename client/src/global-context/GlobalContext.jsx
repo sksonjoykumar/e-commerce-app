@@ -43,7 +43,8 @@ function GlobalContext({ children }) {
       setLoading(false);
     }
   };
-
+  // console.log(categories);
+  // console.log(singleCategory);
   // fetching highlights data from express server
   useEffect(() => {
     const fetchData = async () => {
