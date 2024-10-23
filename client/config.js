@@ -18,5 +18,5 @@ const checkConfig = (server) => {
   return config;
 };
 
-export const selectServer = "local"; // Change to "production" when deploying
+export const selectServer = "production"; // Change to "production" when deploying
 export const config = checkConfig(selectServer);
